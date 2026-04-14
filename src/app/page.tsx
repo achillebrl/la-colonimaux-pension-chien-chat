@@ -8,52 +8,65 @@ export default function Home() {
   return (
     <>
       <ScrollAnimator />
-      <Navigation activePage="/" />
+      <Navigation activePage="accueil" />
 
-      {/* ─── HERO ─────────────────────────────────────────────────────── */}
+      {/* ═══════════════════════════════════════
+          HERO SECTION
+      ═══════════════════════════════════════ */}
       <section
         id="accueil"
         className="relative min-h-screen flex items-end overflow-hidden"
       >
-        {/* Hero image */}
-        <div className="absolute inset-0 img-zoom-container">
+        {/* Background image */}
+        <div className="absolute inset-0">
           <Image
             src="/assets/hero.jpg"
-            alt="La Colo-nimaux — Pension Canine & Féline"
+            alt="La Colo-nimaux — Pension canine et féline"
             fill
             priority
             className="object-cover object-center"
-            sizes="100vw"
           />
-          {/* Dark gradient overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-bark/85 via-bark/30 to-transparent" />
-          {/* Left vignette */}
-          <div className="absolute inset-0 bg-gradient-to-r from-bark/40 via-transparent to-transparent" />
+          {/* Multi-layer gradient overlay */}
+          <div className="absolute inset-0 bg-gradient-to-t from-[#1a2e1f]/90 via-[#1a2e1f]/30 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#1a2e1f]/60 via-transparent to-transparent" />
         </div>
 
-        {/* Floating badge */}
-        <div className="absolute top-32 right-8 md:right-16 float-badge z-10">
-          <div
-            className="blob-shape w-28 h-28 md:w-36 md:h-36 flex flex-col items-center justify-center text-center"
-            style={{ background: "rgba(74,124,89,0.9)", backdropFilter: "blur(8px)" }}
-          >
-            <span className="text-cream text-xs font-lato font-700 uppercase tracking-widest leading-tight">
-              Diplômée<br />Comportementaliste
-            </span>
-            <div className="w-8 h-px bg-gold-light/60 my-1" />
-            <span className="text-gold-light text-xs font-lato">Canin & Félin</span>
-          </div>
+        {/* Floating botanical ornament */}
+        <div className="absolute top-1/4 right-[8%] opacity-20 float-anim hidden lg:block">
+          <svg width="120" height="140" viewBox="0 0 120 140" fill="none">
+            <path d="M60 10 Q80 30 70 60 Q60 90 40 80 Q20 70 30 40 Q40 10 60 10Z" stroke="#c9a84c" strokeWidth="1.5" fill="none"/>
+            <path d="M60 10 Q40 30 50 60 Q60 90 80 80 Q100 70 90 40 Q80 10 60 10Z" stroke="#c9a84c" strokeWidth="1" fill="none"/>
+            <line x1="60" y1="10" x2="60" y2="130" stroke="#c9a84c" strokeWidth="1"/>
+            <path d="M40 50 Q60 45 80 50" stroke="#c9a84c" strokeWidth="0.8" fill="none"/>
+            <path d="M35 70 Q60 63 85 70" stroke="#c9a84c" strokeWidth="0.8" fill="none"/>
+          </svg>
+        </div>
+
+        {/* Paw print pattern — scattered */}
+        <div className="absolute top-[15%] left-[5%] opacity-10 hidden lg:block">
+          <svg width="200" height="200" viewBox="0 0 200 200" fill="#d4e8da">
+            <circle cx="40" cy="30" r="8"/>
+            <circle cx="65" cy="20" r="6"/>
+            <circle cx="85" cy="30" r="7"/>
+            <ellipse cx="62" cy="60" rx="18" ry="22"/>
+            <circle cx="120" cy="110" r="10"/>
+            <circle cx="148" cy="98" r="7"/>
+            <circle cx="168" cy="110" r="8"/>
+            <ellipse cx="144" cy="138" rx="20" ry="24"/>
+          </svg>
         </div>
 
         {/* Hero content */}
-        <div className="relative z-10 w-full px-6 md:px-16 lg:px-24 pb-16 md:pb-24">
-          <div className="max-w-4xl">
+        <div className="relative z-10 w-full pb-20 px-6 md:px-16 lg:px-24">
+          <div className="max-w-5xl">
             {/* Eyebrow */}
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-12 h-px bg-gold" />
+            <div
+              className="hero-animate hero-animate-1 inline-flex items-center gap-3 mb-6"
+            >
+              <div className="w-8 h-px bg-[#c9a84c]" />
               <span
-                className="text-gold text-xs uppercase tracking-[0.25em]"
-                style={{ fontFamily: "var(--font-lato)" }}
+                className="text-[#c9a84c] tracking-[0.25em] text-xs uppercase"
+                style={{ fontFamily: "var(--font-raleway)" }}
               >
                 Ambarès-et-Lagrave · Gironde
               </span>
@@ -61,672 +74,769 @@ export default function Home() {
 
             {/* Main title */}
             <h1
-              className="text-7xl md:text-9xl lg:text-[10rem] font-300 italic leading-none text-cream mb-3"
-              style={{ fontFamily: "var(--font-cormorant)" }}
+              className="hero-animate hero-animate-2 text-[#f7f3ec] leading-[0.9] mb-4"
+              style={{
+                fontFamily: "var(--font-cormorant)",
+                fontSize: "clamp(4rem, 12vw, 11rem)",
+                fontWeight: 600,
+                letterSpacing: "-0.02em",
+              }}
             >
-              La
-              <br />
-              <span className="font-600 not-italic" style={{ color: "#8aab8f" }}>
-                Colo-nimaux
-              </span>
+              La Colo-
+              <span className="italic text-[#a8c5b0]">nimaux</span>
             </h1>
 
-            {/* Tagline */}
+            {/* Tagline script */}
             <p
-              className="text-xl md:text-2xl text-cream/70 mb-8 font-300 tracking-[0.1em] uppercase"
-              style={{ fontFamily: "var(--font-lato)" }}
+              className="hero-animate hero-animate-3 text-[#c9a84c] mb-8"
+              style={{
+                fontFamily: "var(--font-satisfy)",
+                fontSize: "clamp(1.4rem, 4vw, 2.8rem)",
+              }}
             >
               Pension Canine & Féline
             </p>
 
-            {/* CTA row */}
-            <div className="flex flex-wrap gap-4 items-center">
-              <a href="#services" className="btn-primary">
-                <span>Découvrir nos services</span>
-              </a>
-              <a href="tel:0626690774" className="btn-outline" style={{ color: "#f5f0e8", borderColor: "rgba(245,240,232,0.4)" }}>
-                <span style={{ color: "inherit" }}>06 26 69 07 74</span>
+            {/* Description & CTA */}
+            <div className="hero-animate hero-animate-4 flex flex-col sm:flex-row items-start gap-6">
+              <p
+                className="text-[#d4e8da]/80 max-w-md text-base leading-relaxed"
+                style={{ fontFamily: "var(--font-raleway)", fontWeight: 300 }}
+              >
+                Un cadre familial et bienveillant pour vos compagnons, dirigé par une comportementaliste diplômée.
+              </p>
+              <a
+                href="#services"
+                className="shrink-0 inline-flex items-center gap-3 bg-[#4a7c59] hover:bg-[#2f5038] text-[#f7f3ec] px-8 py-4 text-sm tracking-widest uppercase transition-all duration-300 hover:gap-5"
+                style={{ fontFamily: "var(--font-raleway)", fontWeight: 500 }}
+              >
+                Découvrir
+                <svg width="16" height="10" viewBox="0 0 16 10" fill="none">
+                  <path d="M0 5H14M10 1L14 5L10 9" stroke="currentColor" strokeWidth="1.5"/>
+                </svg>
               </a>
             </div>
           </div>
         </div>
 
         {/* Scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 scroll-indicator">
+        <div className="absolute bottom-8 right-8 md:right-16 flex flex-col items-center gap-2 opacity-50">
           <span
-            className="text-cream/50 text-xs uppercase tracking-widest"
-            style={{ fontFamily: "var(--font-lato)" }}
+            className="text-[#f7f3ec] text-[10px] tracking-[0.3em] uppercase rotate-90 origin-center"
+            style={{ fontFamily: "var(--font-raleway)" }}
           >
-            Défiler
+            Scroll
           </span>
-          <div className="w-px h-12 bg-gradient-to-b from-cream/50 to-transparent" />
+          <div className="w-px h-12 bg-[#f7f3ec] animate-pulse" />
+        </div>
+
+        {/* Contact strip */}
+        <div className="absolute bottom-0 right-0 hidden lg:flex items-center gap-6 bg-[#4a7c59]/90 backdrop-blur-sm px-8 py-4">
+          <a
+            href="tel:0626690774"
+            className="flex items-center gap-2 text-[#f7f3ec] hover:text-[#c9a84c] transition-colors text-sm tracking-wide"
+            style={{ fontFamily: "var(--font-raleway)" }}
+          >
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92v2z"/>
+            </svg>
+            06.26.69.07.74
+          </a>
+          <div className="w-px h-5 bg-[#f7f3ec]/30" />
+          <a
+            href="mailto:la.colo.nimaux@gmail.com"
+            className="flex items-center gap-2 text-[#f7f3ec] hover:text-[#c9a84c] transition-colors text-sm tracking-wide"
+            style={{ fontFamily: "var(--font-raleway)" }}
+          >
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+              <polyline points="22,6 12,13 2,6"/>
+            </svg>
+            la.colo.nimaux@gmail.com
+          </a>
         </div>
       </section>
 
-      {/* ─── INTRO BAND ────────────────────────────────────────────────── */}
-      <section className="bg-forest py-8 overflow-hidden">
-        <div className="flex items-center gap-12 whitespace-nowrap">
-          {[
-            "Pension en Liberté",
-            "✦",
-            "Comportementaliste Diplômée",
-            "✦",
-            "Chats & Chiens",
-            "✦",
-            "Premiers Secours Canin & Félin",
-            "✦",
-            "Fleurs de Bach",
-            "✦",
-            "Ambarès-et-Lagrave",
-            "✦",
-          ].map((item, i) => (
-            <span
-              key={i}
-              className="text-cream/80 text-sm uppercase tracking-[0.2em] flex-shrink-0"
-              style={{ fontFamily: "var(--font-lato)" }}
-            >
-              {item}
-            </span>
-          ))}
-          {/* Duplicate for seamless scroll feel */}
-          {[
-            "Pension en Liberté",
-            "✦",
-            "Comportementaliste Diplômée",
-            "✦",
-            "Chats & Chiens",
-            "✦",
-            "Premiers Secours Canin & Félin",
-            "✦",
-            "Fleurs de Bach",
-            "✦",
-            "Ambarès-et-Lagrave",
-            "✦",
-          ].map((item, i) => (
-            <span
-              key={`dup-${i}`}
-              className="text-cream/80 text-sm uppercase tracking-[0.2em] flex-shrink-0"
-              style={{ fontFamily: "var(--font-lato)" }}
-            >
-              {item}
-            </span>
+      {/* ═══════════════════════════════════════
+          MARQUEE STRIP
+      ═══════════════════════════════════════ */}
+      <div className="bg-[#4a7c59] overflow-hidden py-4 relative z-10">
+        <div className="marquee-track">
+          {[...Array(2)].map((_, i) => (
+            <div key={i} className="flex items-center gap-12 shrink-0">
+              {[
+                "🐾 Pension en Liberté",
+                "✦ Comportementaliste Diplômée",
+                "🐱 Chatterie 90m²",
+                "✦ Premiers Secours Canin & Félin",
+                "🌿 Bien-être & Fleurs de Bach",
+                "✦ Cadre Familial",
+                "🐕 Vie en Groupe",
+                "✦ Certifiée Capacitaire",
+              ].map((item, j) => (
+                <span
+                  key={j}
+                  className="text-[#f7f3ec] text-sm tracking-widest uppercase whitespace-nowrap"
+                  style={{ fontFamily: "var(--font-raleway)", fontWeight: 500 }}
+                >
+                  {item}
+                </span>
+              ))}
+            </div>
           ))}
         </div>
-      </section>
+      </div>
 
-      {/* ─── À PROPOS ──────────────────────────────────────────────────── */}
-      <section id="apropos" className="py-24 md:py-36 gradient-mesh overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 md:px-16 lg:px-24">
+      {/* ═══════════════════════════════════════
+          ABOUT SECTION
+      ═══════════════════════════════════════ */}
+      <section id="a-propos" className="relative py-28 md:py-40 overflow-hidden">
+        {/* Background texture */}
+        <div className="absolute inset-0 bg-[#f7f3ec]" />
+        <div
+          className="absolute inset-0 opacity-[0.03]"
+          style={{
+            backgroundImage:
+              "radial-gradient(#4a7c59 1px, transparent 1px)",
+            backgroundSize: "32px 32px",
+          }}
+        />
+
+        <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-16 lg:px-24">
           <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-            {/* Image col */}
-            <div data-animate="fade-left" className="relative">
-              {/* Background accent */}
-              <div
-                className="absolute -top-6 -left-6 w-full h-full rounded-sm"
-                style={{ background: "rgba(74,124,89,0.1)", border: "1px solid rgba(74,124,89,0.15)" }}
-              />
-              {/* Photo */}
-              <div className="relative img-zoom-container vintage-frame rounded-sm overflow-hidden aspect-[4/5]">
+            {/* Image column */}
+            <div
+              className="relative"
+              data-animate="fade-left"
+            >
+              {/* Decorative bg shape */}
+              <div className="absolute -inset-6 bg-gradient-to-br from-[#4a7c59]/10 to-[#c9a84c]/10 rounded-[40px] -z-10" />
+
+              {/* Main photo */}
+              <div className="relative aspect-[3/4] rounded-[2px] overflow-hidden photo-frame">
                 <Image
                   src="/assets/about.jpg"
-                  alt="Vanessa Martin — Éducatrice Comportementaliste"
+                  alt="Vanessa Martin — La Colo-nimaux"
                   fill
                   className="object-cover"
-                  sizes="(max-width: 1024px) 100vw, 50vw"
                 />
+                {/* Color overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#2f5038]/30 to-transparent" />
               </div>
-              {/* Name badge */}
-              <div
-                className="absolute -bottom-5 -right-5 bg-bark text-cream py-4 px-6"
-                style={{ boxShadow: "0 8px 32px rgba(44,32,22,0.25)" }}
-              >
-                <p
-                  className="text-2xl font-400 italic"
-                  style={{ fontFamily: "var(--font-cormorant)", color: "#f5f0e8" }}
+
+              {/* Floating credential card */}
+              <div className="absolute -bottom-6 -right-4 md:-right-10 bg-[#2f5038] text-[#f7f3ec] p-5 md:p-6 max-w-[220px] shadow-2xl">
+                <div
+                  className="text-[#c9a84c] text-3xl font-bold mb-1"
+                  style={{ fontFamily: "var(--font-cormorant)" }}
                 >
-                  Vanessa Martin
-                </p>
+                  Diplômée
+                </div>
                 <p
-                  className="text-xs uppercase tracking-[0.15em] mt-1"
-                  style={{ fontFamily: "var(--font-lato)", color: "#8aab8f" }}
+                  className="text-[#a8c5b0] text-xs leading-relaxed"
+                  style={{ fontFamily: "var(--font-raleway)", fontWeight: 400 }}
                 >
-                  Fondatrice & Comportementaliste
+                  Comportementaliste Canin & Félin — Vox Animae
                 </p>
+                <div className="mt-3 flex gap-1">
+                  {[...Array(5)].map((_, i) => (
+                    <div key={i} className="w-1.5 h-1.5 rounded-full bg-[#c9a84c]" />
+                  ))}
+                </div>
+              </div>
+
+              {/* Paw decoration */}
+              <div className="absolute -top-4 -left-4 w-12 h-12 rounded-full bg-[#4a7c59] flex items-center justify-center text-xl shadow-lg">
+                🐾
               </div>
             </div>
 
-            {/* Text col */}
-            <div>
-              <div data-animate data-delay="1">
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="w-8 h-px bg-forest" />
-                  <span
-                    className="text-forest text-xs uppercase tracking-[0.25em]"
-                    style={{ fontFamily: "var(--font-lato)" }}
-                  >
-                    À propos
-                  </span>
-                </div>
-                <h2
-                  className="text-5xl md:text-6xl font-400 italic leading-tight text-bark mb-8"
-                  style={{ fontFamily: "var(--font-cormorant)" }}
+            {/* Text column */}
+            <div className="lg:pl-8">
+              {/* Section label */}
+              <div
+                data-animate
+                data-delay="100"
+                className="flex items-center gap-3 mb-6"
+              >
+                <div className="w-12 h-px bg-[#4a7c59]" />
+                <span
+                  className="text-[#4a7c59] tracking-[0.25em] text-xs uppercase"
+                  style={{ fontFamily: "var(--font-raleway)", fontWeight: 600 }}
                 >
-                  Une passion au
-                  <br />
-                  <span className="text-forest font-600 not-italic">cœur du métier</span>
-                </h2>
+                  À Propos
+                </span>
               </div>
 
-              <div data-animate data-delay="2">
+              <h2
+                data-animate
+                data-delay="200"
+                className="botanical-line text-[#3d2b1f] leading-tight mb-10"
+                style={{
+                  fontFamily: "var(--font-cormorant)",
+                  fontSize: "clamp(2.5rem, 5vw, 4rem)",
+                  fontWeight: 600,
+                }}
+              >
+                Une passion
+                <br />
+                <span className="italic text-[#4a7c59]">au service</span>
+                <br />
+                de vos animaux
+              </h2>
+
+              <div
+                data-animate
+                data-delay="300"
+                className="space-y-4 mb-10"
+              >
                 <p
-                  className="text-bark-light/80 text-lg leading-relaxed mb-6"
-                  style={{ fontFamily: "var(--font-lato)", fontWeight: 300 }}
+                  className="text-[#3d2b1f]/80 text-lg leading-relaxed"
+                  style={{ fontFamily: "var(--font-raleway)", fontWeight: 300 }}
                 >
-                  Passionnée par les animaux depuis son plus jeune âge, Vanessa Martin a ouvert
-                  une pension canine et féline au cœur de la Gironde.
+                  Passionnée par les animaux depuis mon plus jeune âge, j'ai fait le choix de travailler avec eux. J'ai donc ouvert une pension canine et féline.
                 </p>
                 <p
-                  className="text-bark-light/80 text-lg leading-relaxed mb-8"
-                  style={{ fontFamily: "var(--font-lato)", fontWeight: 300 }}
+                  className="text-[#3d2b1f]/80 text-lg leading-relaxed"
+                  style={{ fontFamily: "var(--font-raleway)", fontWeight: 300 }}
                 >
-                  Souhaitant approfondir ses connaissances, elle a suivi une formation
-                  d'Éducateur Comportementaliste Canin et Comportementaliste Félin — ce qui lui
-                  permet chaque jour de mieux comprendre les animaux qu'elle garde et de
-                  s'adapter à leurs besoins individuels.
+                  Ayant toujours eu envie d'en apprendre plus sur eux, j'ai suivi une formation d'Éducateur Comportementaliste Canin et Comportementaliste Félin. Ceci me permet tous les jours de comprendre les animaux que je garde, de m'ajuster à eux.
+                </p>
+                <p
+                  className="text-[#4a7c59] text-xl italic"
+                  style={{ fontFamily: "var(--font-cormorant)", fontWeight: 500 }}
+                >
+                  — Vanessa Martin
                 </p>
               </div>
 
-              {/* USPs */}
-              <div data-animate data-delay="3" className="space-y-3 mb-10">
-                {[
-                  { icon: "🎓", text: "Diplôme Comportementaliste Canin & Félin — Vox Animae" },
-                  { icon: "🏥", text: "Premiers Secours Canin & Félin Niveau 1 — CFORA" },
-                  { icon: "🌸", text: "Bien-être félin par les Fleurs de Bach" },
-                  { icon: "📋", text: "Certificat de Capacité — Animaux de Compagnie" },
-                ].map((item, i) => (
-                  <div
-                    key={i}
-                    className="flex items-start gap-3 p-3 rounded-sm"
-                    style={{ background: "rgba(74,124,89,0.05)", border: "1px solid rgba(74,124,89,0.1)" }}
-                  >
-                    <span className="text-base mt-0.5 flex-shrink-0">{item.icon}</span>
+              {/* Certifications */}
+              <div data-animate data-delay="400">
+                <p
+                  className="text-[#3d2b1f] text-xs tracking-[0.2em] uppercase mb-4"
+                  style={{ fontFamily: "var(--font-raleway)", fontWeight: 600 }}
+                >
+                  Formations & Certifications
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {[
+                    "Capacitaire",
+                    "Premiers Secours N.1",
+                    "PECCRAM",
+                    "Fleurs de Bach",
+                    "Chien Sourd",
+                    "Comportementaliste Canin",
+                    "Comportementaliste Félin",
+                  ].map((cert) => (
                     <span
-                      className="text-sm text-bark-light"
-                      style={{ fontFamily: "var(--font-lato)", fontWeight: 400 }}
+                      key={cert}
+                      className="cert-pill px-3 py-1.5 text-[#4a7c59] text-xs rounded-full"
+                      style={{ fontFamily: "var(--font-raleway)", fontWeight: 500 }}
                     >
-                      {item.text}
+                      {cert}
                     </span>
-                  </div>
-                ))}
-              </div>
-
-              <div data-animate data-delay="4">
-                <a href="#contact" className="btn-primary">
-                  <span>Nous contacter</span>
-                </a>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ─── SERVICES ──────────────────────────────────────────────────── */}
-      <section
-        id="services"
-        className="py-24 md:py-36 paw-pattern"
-        style={{ background: "#f0ebe0" }}
-      >
-        <div className="max-w-7xl mx-auto px-6 md:px-16 lg:px-24">
-          {/* Header */}
+      {/* ═══════════════════════════════════════
+          SERVICES SECTION
+      ═══════════════════════════════════════ */}
+      <section id="services" className="relative py-28 md:py-40 overflow-hidden">
+        {/* Dark forest background */}
+        <div className="absolute inset-0 bg-[#1e3526]" />
+
+        {/* Mesh gradient */}
+        <div className="absolute inset-0">
+          <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#4a7c59]/20 rounded-full blur-[100px]" />
+          <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-[#c9a84c]/10 rounded-full blur-[80px]" />
+        </div>
+
+        {/* Geometric pattern */}
+        <div
+          className="absolute inset-0 opacity-[0.04]"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23a8c5b0' stroke-width='0.5'%3E%3Cpath d='M30 5 L55 20 L55 40 L30 55 L5 40 L5 20 Z'/%3E%3C/g%3E%3C/svg%3E")`,
+            backgroundSize: "60px 60px",
+          }}
+        />
+
+        <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-16 lg:px-24">
+          {/* Section header */}
           <div className="text-center mb-20">
-            <div data-animate className="flex items-center justify-center gap-3 mb-6">
-              <div className="w-12 h-px bg-forest" />
+            <div
+              data-animate
+              className="flex items-center justify-center gap-3 mb-6"
+            >
+              <div className="w-12 h-px bg-[#c9a84c]" />
               <span
-                className="text-forest text-xs uppercase tracking-[0.25em]"
-                style={{ fontFamily: "var(--font-lato)" }}
+                className="text-[#c9a84c] tracking-[0.25em] text-xs uppercase"
+                style={{ fontFamily: "var(--font-raleway)", fontWeight: 600 }}
               >
-                Nos services
+                Nos Services
               </span>
-              <div className="w-12 h-px bg-forest" />
+              <div className="w-12 h-px bg-[#c9a84c]" />
             </div>
             <h2
               data-animate
-              data-delay="1"
-              className="text-5xl md:text-7xl font-400 italic leading-tight text-bark"
-              style={{ fontFamily: "var(--font-cormorant)" }}
+              data-delay="200"
+              className="text-[#f7f3ec] leading-tight"
+              style={{
+                fontFamily: "var(--font-cormorant)",
+                fontSize: "clamp(2.5rem, 6vw, 5rem)",
+                fontWeight: 600,
+              }}
             >
-              Pension en
+              L'hébergement{" "}
+              <span className="italic text-[#a8c5b0]">idéal</span>
               <br />
-              <span className="text-forest font-600 not-italic">toute liberté</span>
+              pour chaque animal
             </h2>
           </div>
 
-          {/* Cards */}
+          {/* Service cards */}
           <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
             {/* Pension Canine */}
-            <div data-animate="fade-left" data-delay="2" className="service-card bg-warm-white rounded-sm overflow-hidden">
-              {/* Card header */}
-              <div
-                className="relative h-64 overflow-hidden"
-                style={{ background: "linear-gradient(135deg, #2d5c3f 0%, #4a7c59 50%, #6a9e78 100%)" }}
-              >
-                <div className="absolute inset-0 flex flex-col items-center justify-center">
-                  <span className="text-8xl mb-2">🐕</span>
-                  <span
-                    className="text-cream/60 text-xs uppercase tracking-widest"
-                    style={{ fontFamily: "var(--font-lato)" }}
-                  >
-                    Chiens bienvenus
-                  </span>
-                </div>
-                {/* Diagonal accent */}
-                <div
-                  className="absolute bottom-0 left-0 right-0 h-12"
-                  style={{
-                    background: "#faf7f2",
-                    clipPath: "polygon(0 100%, 100% 0, 100% 100%)",
-                  }}
-                />
-                {/* Price badge */}
-                <div
-                  className="absolute top-4 right-4 bg-gold text-bark py-2 px-4"
-                  style={{ fontFamily: "var(--font-lato)" }}
-                >
-                  <p className="text-xs font-700 uppercase tracking-wider">À partir de</p>
-                  <p className="text-2xl font-900 leading-tight">22€</p>
-                  <p className="text-xs">/jour</p>
-                </div>
-              </div>
+            <div
+              data-animate="fade-left"
+              data-delay="200"
+              className="service-card group relative bg-gradient-to-br from-[#2f5038] to-[#243d2b] border border-[#4a7c59]/30 overflow-hidden"
+            >
+              {/* Top accent */}
+              <div className="h-1 bg-gradient-to-r from-[#4a7c59] to-[#c9a84c]" />
 
-              {/* Card body */}
-              <div className="p-8">
-                <div className="accent-line mb-6" />
+              <div className="p-8 md:p-10">
+                {/* Icon */}
+                <div className="w-16 h-16 rounded-full bg-[#4a7c59]/20 border border-[#4a7c59]/40 flex items-center justify-center text-3xl mb-8 group-hover:bg-[#4a7c59]/40 transition-colors">
+                  🐕
+                </div>
+
                 <h3
-                  className="text-3xl font-600 text-bark mb-2"
-                  style={{ fontFamily: "var(--font-cormorant)" }}
+                  className="text-[#f7f3ec] mb-2"
+                  style={{
+                    fontFamily: "var(--font-cormorant)",
+                    fontSize: "2.2rem",
+                    fontWeight: 600,
+                  }}
                 >
                   Pension Canine
                 </h3>
-                <p
-                  className="text-forest text-sm font-600 uppercase tracking-wider mb-6"
-                  style={{ fontFamily: "var(--font-lato)" }}
-                >
-                  22 € / jour · 38 € pour 2 chiens
-                </p>
+
+                {/* Price */}
+                <div className="flex flex-wrap gap-3 mb-6">
+                  <span
+                    className="bg-[#c9a84c]/15 border border-[#c9a84c]/30 text-[#c9a84c] px-4 py-1.5 text-sm"
+                    style={{ fontFamily: "var(--font-raleway)", fontWeight: 500 }}
+                  >
+                    22 € / jour · 1 chien
+                  </span>
+                  <span
+                    className="bg-[#c9a84c]/15 border border-[#c9a84c]/30 text-[#c9a84c] px-4 py-1.5 text-sm"
+                    style={{ fontFamily: "var(--font-raleway)", fontWeight: 500 }}
+                  >
+                    38 € / jour · 2 chiens
+                  </span>
+                </div>
 
                 <p
-                  className="text-bark-light/75 leading-relaxed mb-6 text-base"
-                  style={{ fontFamily: "var(--font-lato)", fontWeight: 300 }}
+                  className="text-[#a8c5b0] text-base leading-relaxed mb-8"
+                  style={{ fontFamily: "var(--font-raleway)", fontWeight: 300 }}
                 >
-                  Pension en liberté : les chiens vivent en groupe la journée et dorment en box
-                  individuel la nuit. Une approche respectueuse des besoins sociaux de votre
-                  compagnon.
+                  Pension en liberté : les chiens vivent en groupe la journée et dorment en box individuel la nuit. Un environnement stimulant qui respecte leurs besoins de socialisation et d'exercice.
                 </p>
 
-                <div className="space-y-2 mb-8">
+                {/* Features list */}
+                <ul className="space-y-3 mb-8">
                   {[
                     "Vie en groupe la journée",
                     "Box individuel la nuit",
+                    "Chiens ok congénères & humains requis",
                     "Nourriture fournie par le propriétaire",
                     "Vaccins obligatoires : Carré, Hépatite, Lepto, Parvo, Toux du Chenil",
-                    "Femelles de +18 mois : stérilisation requise",
-                  ].map((item, i) => (
-                    <div key={i} className="flex items-start gap-2">
-                      <span
-                        className="text-forest mt-1 flex-shrink-0 text-xs"
-                        style={{ fontFamily: "var(--font-lato)" }}
-                      >
-                        ✦
-                      </span>
-                      <span
-                        className="text-bark-light/70 text-sm"
-                        style={{ fontFamily: "var(--font-lato)" }}
-                      >
-                        {item}
-                      </span>
-                    </div>
+                  ].map((item) => (
+                    <li
+                      key={item}
+                      className="flex items-start gap-3 text-[#d4e8da]/80 text-sm"
+                      style={{ fontFamily: "var(--font-raleway)", fontWeight: 400 }}
+                    >
+                      <span className="text-[#4a7c59] mt-0.5 shrink-0">✦</span>
+                      {item}
+                    </li>
                   ))}
-                </div>
+                </ul>
 
-                <a href="tel:0626690774" className="btn-primary w-full flex justify-center">
-                  <span>Réserver · 06 26 69 07 74</span>
-                </a>
+                <div className="pt-6 border-t border-[#4a7c59]/20">
+                  <a
+                    href="#contact"
+                    className="inline-flex items-center gap-2 text-[#c9a84c] hover:text-[#e8cc8a] text-sm tracking-widest uppercase transition-colors group-hover:gap-4"
+                    style={{ fontFamily: "var(--font-raleway)", fontWeight: 600 }}
+                  >
+                    Nous contacter
+                    <svg width="14" height="8" viewBox="0 0 14 8" fill="none">
+                      <path d="M0 4H12M9 1L12 4L9 7" stroke="currentColor" strokeWidth="1.5"/>
+                    </svg>
+                  </a>
+                </div>
               </div>
             </div>
 
             {/* Pension Féline */}
-            <div data-animate="fade-right" data-delay="3" className="service-card bg-warm-white rounded-sm overflow-hidden">
-              {/* Card header */}
-              <div
-                className="relative h-64 overflow-hidden"
-                style={{ background: "linear-gradient(135deg, #4a3728 0%, #6b5042 50%, #8a7260 100%)" }}
-              >
-                <div className="absolute inset-0 flex flex-col items-center justify-center">
-                  <span className="text-8xl mb-2">🐈</span>
-                  <span
-                    className="text-cream/60 text-xs uppercase tracking-widest"
-                    style={{ fontFamily: "var(--font-lato)" }}
-                  >
-                    Chats bienvenus
-                  </span>
-                </div>
-                {/* Diagonal accent */}
-                <div
-                  className="absolute bottom-0 left-0 right-0 h-12"
-                  style={{
-                    background: "#faf7f2",
-                    clipPath: "polygon(0 100%, 100% 0, 100% 100%)",
-                  }}
-                />
-                {/* Price badge */}
-                <div
-                  className="absolute top-4 right-4 bg-gold text-bark py-2 px-4"
-                  style={{ fontFamily: "var(--font-lato)" }}
-                >
-                  <p className="text-xs font-700 uppercase tracking-wider">À partir de</p>
-                  <p className="text-2xl font-900 leading-tight">14€</p>
-                  <p className="text-xs">/jour</p>
-                </div>
-              </div>
+            <div
+              data-animate="fade-right"
+              data-delay="300"
+              className="service-card group relative bg-gradient-to-br from-[#3a2d1a] to-[#2a2010] border border-[#c9a84c]/20 overflow-hidden"
+            >
+              {/* Top accent */}
+              <div className="h-1 bg-gradient-to-r from-[#c9a84c] to-[#e8cc8a]" />
 
-              {/* Card body */}
-              <div className="p-8">
-                <div className="accent-line mb-6" />
+              <div className="p-8 md:p-10">
+                {/* Icon */}
+                <div className="w-16 h-16 rounded-full bg-[#c9a84c]/15 border border-[#c9a84c]/30 flex items-center justify-center text-3xl mb-8 group-hover:bg-[#c9a84c]/30 transition-colors">
+                  🐱
+                </div>
+
                 <h3
-                  className="text-3xl font-600 text-bark mb-2"
-                  style={{ fontFamily: "var(--font-cormorant)" }}
+                  className="text-[#f7f3ec] mb-2"
+                  style={{
+                    fontFamily: "var(--font-cormorant)",
+                    fontSize: "2.2rem",
+                    fontWeight: 600,
+                  }}
                 >
                   Pension Féline
                 </h3>
-                <p
-                  className="text-forest text-sm font-600 uppercase tracking-wider mb-6"
-                  style={{ fontFamily: "var(--font-lato)" }}
-                >
-                  14 € / jour · 20 € pour 2 chats
-                </p>
 
-                <p
-                  className="text-bark-light/75 leading-relaxed mb-6 text-base"
-                  style={{ fontFamily: "var(--font-lato)", fontWeight: 300 }}
-                >
-                  Chatterie de 12 box individuels, avec espace commun intérieur de 30m² et cour
-                  extérieure de 60m². Respect des phases de repos et stimulation adaptée.
-                </p>
-
-                <div className="space-y-2 mb-8">
-                  {[
-                    "12 box individuels pour la nuit et le repos",
-                    "Espace commun intérieur de 30m²",
-                    "Cour extérieure de 60m²",
-                    "Nourriture fournie par le propriétaire",
-                    "Vaccins obligatoires : Typhus, Coryza et Leucose",
-                  ].map((item, i) => (
-                    <div key={i} className="flex items-start gap-2">
-                      <span
-                        className="text-forest mt-1 flex-shrink-0 text-xs"
-                        style={{ fontFamily: "var(--font-lato)" }}
-                      >
-                        ✦
-                      </span>
-                      <span
-                        className="text-bark-light/70 text-sm"
-                        style={{ fontFamily: "var(--font-lato)" }}
-                      >
-                        {item}
-                      </span>
-                    </div>
-                  ))}
+                {/* Price */}
+                <div className="flex flex-wrap gap-3 mb-6">
+                  <span
+                    className="bg-[#c9a84c]/15 border border-[#c9a84c]/30 text-[#c9a84c] px-4 py-1.5 text-sm"
+                    style={{ fontFamily: "var(--font-raleway)", fontWeight: 500 }}
+                  >
+                    14 € / jour · 1 chat
+                  </span>
+                  <span
+                    className="bg-[#c9a84c]/15 border border-[#c9a84c]/30 text-[#c9a84c] px-4 py-1.5 text-sm"
+                    style={{ fontFamily: "var(--font-raleway)", fontWeight: 500 }}
+                  >
+                    20 € / jour · 2 chats
+                  </span>
                 </div>
 
-                <a href="tel:0626690774" className="btn-primary w-full flex justify-center">
-                  <span>Réserver · 06 26 69 07 74</span>
-                </a>
+                <p
+                  className="text-[#e8cc8a]/80 text-base leading-relaxed mb-8"
+                  style={{ fontFamily: "var(--font-raleway)", fontWeight: 300 }}
+                >
+                  Chatterie de 12 box individuels pour la nuit et les phases de repos. Espace commun intérieur de 30 m² et cour extérieure de 60 m² pour l'épanouissement de vos félins.
+                </p>
+
+                {/* Features list */}
+                <ul className="space-y-3 mb-8">
+                  {[
+                    "12 box individuels",
+                    "Espace commun intérieur 30 m²",
+                    "Cour extérieure 60 m²",
+                    "Nourriture fournie par le propriétaire",
+                    "Vaccins obligatoires : Typhus, Coryza, Leucose",
+                  ].map((item) => (
+                    <li
+                      key={item}
+                      className="flex items-start gap-3 text-[#e8cc8a]/70 text-sm"
+                      style={{ fontFamily: "var(--font-raleway)", fontWeight: 400 }}
+                    >
+                      <span className="text-[#c9a84c] mt-0.5 shrink-0">✦</span>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+
+                <div className="pt-6 border-t border-[#c9a84c]/15">
+                  <a
+                    href="#contact"
+                    className="inline-flex items-center gap-2 text-[#c9a84c] hover:text-[#e8cc8a] text-sm tracking-widest uppercase transition-colors group-hover:gap-4"
+                    style={{ fontFamily: "var(--font-raleway)", fontWeight: 600 }}
+                  >
+                    Nous contacter
+                    <svg width="14" height="8" viewBox="0 0 14 8" fill="none">
+                      <path d="M0 4H12M9 1L12 4L9 7" stroke="currentColor" strokeWidth="1.5"/>
+                    </svg>
+                  </a>
+                </div>
               </div>
             </div>
           </div>
 
-          {/* Tariff note */}
-          <div data-animate data-delay="4" className="mt-8 text-center">
-            <p
-              className="text-bark-light/60 text-sm italic"
-              style={{ fontFamily: "var(--font-cormorant)", fontSize: "1rem" }}
-            >
-              Tarification par période de 24h — toute période commencée est due
-            </p>
+          {/* Availability notice */}
+          <div
+            data-animate
+            data-delay="400"
+            className="mt-12 p-6 border border-[#c9a84c]/30 bg-[#c9a84c]/5 flex flex-col md:flex-row items-start md:items-center gap-4"
+          >
+            <div className="text-[#c9a84c] text-2xl shrink-0">⚠️</div>
+            <div>
+              <p
+                className="text-[#c9a84c] font-semibold mb-1"
+                style={{ fontFamily: "var(--font-raleway)" }}
+              >
+                Période de fermeture : 27 Avril au 3 Mai 2026
+              </p>
+              <p
+                className="text-[#a8c5b0] text-sm"
+                style={{ fontFamily: "var(--font-raleway)", fontWeight: 300 }}
+              >
+                Pension Canine complète du 26/7 au 23/8 · Pension Féline complète du 25/7 au 16/8. Toute période de 24h commencée est due.
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* ─── WHY US / ATOUTS ───────────────────────────────────────────── */}
-      <section className="py-24 md:py-36 gradient-mesh overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 md:px-16 lg:px-24">
+      {/* ═══════════════════════════════════════
+          WHY CHOOSE US — USP SECTION
+      ═══════════════════════════════════════ */}
+      <section className="relative py-28 md:py-40 overflow-hidden">
+        <div className="absolute inset-0 bg-[#f0ebe2]" />
+        {/* Large decorative text */}
+        <div
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[20vw] font-bold text-[#4a7c59]/[0.04] whitespace-nowrap select-none pointer-events-none"
+          style={{ fontFamily: "var(--font-cormorant)" }}
+        >
+          Bien-être
+        </div>
+
+        <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-16 lg:px-24">
           {/* Header */}
-          <div className="mb-20">
-            <div data-animate className="flex items-center gap-3 mb-6">
-              <div className="w-8 h-px bg-forest" />
-              <span
-                className="text-forest text-xs uppercase tracking-[0.25em]"
-                style={{ fontFamily: "var(--font-lato)" }}
+          <div className="grid lg:grid-cols-2 gap-12 mb-20 items-end">
+            <div>
+              <div
+                data-animate
+                className="flex items-center gap-3 mb-6"
               >
-                Pourquoi nous choisir
-              </span>
+                <div className="w-12 h-px bg-[#4a7c59]" />
+                <span
+                  className="text-[#4a7c59] tracking-[0.25em] text-xs uppercase"
+                  style={{ fontFamily: "var(--font-raleway)", fontWeight: 600 }}
+                >
+                  Nos Engagements
+                </span>
+              </div>
+              <h2
+                data-animate
+                data-delay="200"
+                className="text-[#3d2b1f] leading-tight"
+                style={{
+                  fontFamily: "var(--font-cormorant)",
+                  fontSize: "clamp(2.5rem, 5vw, 4.5rem)",
+                  fontWeight: 600,
+                }}
+              >
+                Pourquoi nous
+                <br />
+                <span className="italic text-[#4a7c59]">faire confiance</span> ?
+              </h2>
             </div>
-            <h2
-              data-animate
-              data-delay="1"
-              className="text-5xl md:text-6xl font-400 italic text-bark leading-tight"
-              style={{ fontFamily: "var(--font-cormorant)" }}
-            >
-              Un accueil
-              <br />
-              <span className="text-forest font-600 not-italic">unique & bienveillant</span>
-            </h2>
+            <div data-animate data-delay="300">
+              <p
+                className="text-[#3d2b1f]/70 text-lg leading-relaxed"
+                style={{ fontFamily: "var(--font-raleway)", fontWeight: 300 }}
+              >
+                Chaque animal qui nous est confié bénéficie d'une attention individualisée, d'un cadre adapté à sa nature, et d'une prise en charge par une professionnelle formée et certifiée.
+              </p>
+            </div>
           </div>
 
-          {/* Grid of atouts */}
+          {/* USP grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               {
-                num: "01",
-                title: "Comportementaliste Diplômée",
-                desc: "Vanessa Martin est diplômée comportementaliste canin et félin (Vox Animae), garantissant une prise en charge adaptée au comportement de chaque animal.",
                 icon: "🎓",
+                title: "Diplôme comportementaliste",
+                desc: "Comportementaliste Canin et Félin diplômée Vox Animae pour une compréhension profonde de chaque animal.",
+                delay: "100",
               },
               {
-                num: "02",
-                title: "Pension en Liberté",
-                desc: "Les chiens vivent en groupe la journée, respectant leurs besoins sociaux naturels, avec un retour en box individuel pour une nuit sereine.",
-                icon: "🌿",
+                icon: "🐾",
+                title: "Pension en liberté",
+                desc: "Les chiens vivent en groupe la journée pour une socialisation naturelle et un cadre familial épanouissant.",
+                delay: "200",
               },
               {
-                num: "03",
-                title: "Chatterie Spacieuse",
-                desc: "12 box individuels, un espace commun de 30m² et une cour extérieure de 60m² pour que vos chats s'épanouissent en toute sécurité.",
                 icon: "🏡",
+                title: "Grande chatterie",
+                desc: "Espace commun intérieur de 30 m² et cour extérieure de 60 m² pour le plein épanouissement des chats.",
+                delay: "300",
               },
               {
-                num: "04",
-                title: "Premiers Secours",
-                desc: "Formation Premiers Secours Canin et Félin Niveau 1 (CFORA) — une réaction rapide et efficace en cas d'urgence.",
-                icon: "❤️‍🩹",
+                icon: "🚑",
+                title: "Premiers secours",
+                desc: "Formée aux premiers secours canin et félin (niveau 1 — CFORA) pour une prise en charge sécurisée en urgence.",
+                delay: "400",
               },
               {
-                num: "05",
-                title: "Fleurs de Bach",
-                desc: "Connaissance du bien-être félin par les Fleurs de Bach (Nadine Gauthier) pour une approche comportementale globale et apaisante.",
                 icon: "🌸",
+                title: "Fleurs de Bach",
+                desc: "Approche bien-être intégrant les remèdes de Fleurs de Bach pour accompagner le stress des chats.",
+                delay: "500",
               },
               {
-                num: "06",
-                title: "PECCRAM Certifiée",
-                desc: "Programme d'Éducation à la Connaissance du Chien et au Risque d'Accident par Morsures — sécurité et pédagogie au cœur de la pratique.",
-                icon: "🛡️",
+                icon: "🤫",
+                title: "Chien sourd",
+                desc: "Formée à l'éducation des chiens sourds pour accueillir tous les profils avec bienveillance et expertise.",
+                delay: "600",
               },
-            ].map((item, i) => (
+            ].map((usp) => (
               <div
-                key={i}
-                data-animate
-                data-delay={String((i % 3) + 1)}
-                className="relative p-7 rounded-sm group cursor-default"
-                style={{
-                  background: "rgba(255,255,255,0.7)",
-                  border: "1px solid rgba(74,124,89,0.12)",
-                  backdropFilter: "blur(8px)",
-                  transition: "all 0.4s ease",
-                }}
+                key={usp.title}
+                data-animate="scale-up"
+                data-delay={usp.delay}
+                className="group relative bg-white hover:bg-[#4a7c59] p-8 transition-colors duration-500 cursor-default"
               >
-                {/* Number watermark */}
-                <span
-                  className="absolute top-4 right-5 text-6xl font-300 leading-none pointer-events-none select-none"
+                <div className="text-3xl mb-5">{usp.icon}</div>
+                <h3
+                  className="text-[#3d2b1f] group-hover:text-[#f7f3ec] mb-3 transition-colors"
                   style={{
                     fontFamily: "var(--font-cormorant)",
-                    color: "rgba(74,124,89,0.08)",
+                    fontSize: "1.5rem",
+                    fontWeight: 600,
                   }}
                 >
-                  {item.num}
-                </span>
-
-                <span className="text-3xl mb-4 block">{item.icon}</span>
-                <h4
-                  className="text-xl font-600 text-bark mb-3"
-                  style={{ fontFamily: "var(--font-cormorant)" }}
-                >
-                  {item.title}
-                </h4>
+                  {usp.title}
+                </h3>
                 <p
-                  className="text-bark-light/70 text-sm leading-relaxed"
-                  style={{ fontFamily: "var(--font-lato)", fontWeight: 300 }}
+                  className="text-[#3d2b1f]/60 group-hover:text-[#d4e8da] text-sm leading-relaxed transition-colors"
+                  style={{ fontFamily: "var(--font-raleway)", fontWeight: 400 }}
                 >
-                  {item.desc}
+                  {usp.desc}
                 </p>
-                {/* Hover border */}
-                <div
-                  className="absolute bottom-0 left-0 h-0.5 w-0 bg-forest transition-all duration-500 group-hover:w-full"
-                />
+                {/* Bottom accent line */}
+                <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#c9a84c] group-hover:w-full transition-all duration-500" />
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ─── GALLERY ───────────────────────────────────────────────────── */}
-      <section
-        id="galerie"
-        className="py-24 md:py-36"
-        style={{ background: "#2c2016" }}
-      >
-        <div className="max-w-7xl mx-auto px-6 md:px-16 lg:px-24">
-          <div className="text-center mb-16">
-            <div data-animate className="flex items-center justify-center gap-3 mb-6">
-              <div className="w-12 h-px" style={{ background: "rgba(201,168,76,0.4)" }} />
-              <span
-                className="text-xs uppercase tracking-[0.25em]"
-                style={{ fontFamily: "var(--font-lato)", color: "#c9a84c" }}
+      {/* ═══════════════════════════════════════
+          GALLERY SECTION
+      ═══════════════════════════════════════ */}
+      <section id="galerie" className="relative py-28 md:py-40 overflow-hidden bg-[#1e3526]">
+        {/* Decorative */}
+        <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#4a7c59] via-[#c9a84c] to-[#4a7c59]" />
+
+        <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-16 lg:px-24">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+            <div>
+              <div
+                data-animate
+                className="flex items-center gap-3 mb-6"
               >
-                Galerie
-              </span>
-              <div className="w-12 h-px" style={{ background: "rgba(201,168,76,0.4)" }} />
+                <div className="w-12 h-px bg-[#c9a84c]" />
+                <span
+                  className="text-[#c9a84c] tracking-[0.25em] text-xs uppercase"
+                  style={{ fontFamily: "var(--font-raleway)", fontWeight: 600 }}
+                >
+                  Galerie Photo
+                </span>
+              </div>
+              <h2
+                data-animate
+                data-delay="200"
+                className="text-[#f7f3ec] leading-tight"
+                style={{
+                  fontFamily: "var(--font-cormorant)",
+                  fontSize: "clamp(2.5rem, 5vw, 4rem)",
+                  fontWeight: 600,
+                }}
+              >
+                La vie à la{" "}
+                <span className="italic text-[#a8c5b0]">Colo-nimaux</span>
+              </h2>
             </div>
-            <h2
-              data-animate
-              data-delay="1"
-              className="text-5xl md:text-6xl font-400 italic leading-tight"
-              style={{ fontFamily: "var(--font-cormorant)", color: "#f5f0e8" }}
-            >
-              La vie à la
-              <br />
-              <span className="font-600 not-italic" style={{ color: "#8aab8f" }}>
-                Colo-nimaux
-              </span>
-            </h2>
+            <div data-animate data-delay="300">
+              <a
+                href="https://www.facebook.com/Lacolonimaux/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-[#c9a84c] hover:text-[#e8cc8a] text-sm tracking-widest uppercase transition-colors"
+                style={{ fontFamily: "var(--font-raleway)", fontWeight: 600 }}
+              >
+                Voir sur Facebook
+                <svg width="14" height="8" viewBox="0 0 14 8" fill="none">
+                  <path d="M0 4H12M9 1L12 4L9 7" stroke="currentColor" strokeWidth="1.5"/>
+                </svg>
+              </a>
+            </div>
           </div>
 
-          <div data-animate="scale-up" data-delay="2">
+          <div data-animate data-delay="200">
             <GalleryCarousel />
           </div>
         </div>
       </section>
 
-      {/* ─── CERTIFICATIONS ────────────────────────────────────────────── */}
-      <section
-        className="py-20"
-        style={{ background: "#f0ebe0" }}
-      >
+      {/* ═══════════════════════════════════════
+          CERTIFICATIONS SECTION
+      ═══════════════════════════════════════ */}
+      <section className="relative py-20 bg-[#f7f3ec] overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 md:px-16 lg:px-24">
-          <div data-animate className="flex items-center justify-center gap-3 mb-12">
-            <div className="w-12 h-px bg-forest" />
+          <div
+            data-animate
+            className="text-center mb-12"
+          >
             <span
-              className="text-forest text-xs uppercase tracking-[0.25em]"
-              style={{ fontFamily: "var(--font-lato)" }}
+              className="text-[#4a7c59] tracking-[0.25em] text-xs uppercase"
+              style={{ fontFamily: "var(--font-raleway)", fontWeight: 600 }}
             >
               Certifications & Formations
             </span>
-            <div className="w-12 h-px bg-forest" />
           </div>
-
-          <div className="grid md:grid-cols-2 gap-4">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
             {[
               {
-                title: "Comportementaliste Canin & Félin",
+                title: "Diplôme Comportementaliste Canin & Félin / Éducateur Canin",
                 org: "Vox Animae",
-                desc: "Diplôme d'Éducateur Canin et Comportementaliste Félin",
-              },
-              {
-                title: "Premiers Secours Canin & Félin Niv. 1",
-                org: "CFORA",
-                desc: "Formation aux gestes de premiers secours pour animaux",
-              },
-              {
-                title: "Chien Sourd",
-                org: "Julia Deubel & Canis'Family (Christine Barreau)",
-                desc: "'Un chien est né dans un monde de silence' — éducation du chien sourd",
-              },
-              {
-                title: "PECCRAM",
-                org: "FIMAC Canin — Chantal Hazard",
-                desc: "Programme d'Éducation à la Connaissance du Chien et au Risque d'Accident par Morsures",
-              },
-              {
-                title: "Fleurs de Bach & Bien-être Félin",
-                org: "Source & Végétale — Nadine Gauthier",
-                desc: "Approche comportementale globale par les Fleurs de Bach",
               },
               {
                 title: "Certificat de Capacité",
-                org: "Préfecture",
-                desc: "Relatif aux activités liées aux animaux de compagnie d'espèces domestiques",
+                org: "Animaux de compagnie d'espèces domestiques",
+              },
+              {
+                title: "Premiers Secours Canin & Félin Niveau 1",
+                org: "CFORA",
+              },
+              {
+                title: "Formation PECCRAM",
+                org: "Programme d'Éducation à la Connaissance du Chien — FIMAC Canin",
+              },
+              {
+                title: "Le bien-être du chat par les Fleurs de Bach",
+                org: "Source & Végétale (Nadine Gauthier)",
+              },
+              {
+                title: "Éducation du chien sourd",
+                org: "Education & comportement du chien (Julia Deubel) · Canis'Family",
               },
             ].map((cert, i) => (
               <div
-                key={i}
-                data-animate
-                data-delay={String((i % 2) + 1)}
-                className="flex gap-4 p-5 rounded-sm"
-                style={{ background: "rgba(255,255,255,0.5)", border: "1px solid rgba(74,124,89,0.12)" }}
+                key={cert.title}
+                data-animate="scale-up"
+                data-delay={String((i + 1) * 100)}
+                className="cert-pill p-5 rounded-sm"
               >
                 <div
-                  className="w-1 flex-shrink-0 rounded-full self-stretch"
-                  style={{ background: "linear-gradient(to bottom, #4a7c59, #c9a84c)" }}
-                />
-                <div>
-                  <p
-                    className="font-600 text-bark text-base"
-                    style={{ fontFamily: "var(--font-cormorant)" }}
-                  >
-                    {cert.title}
-                  </p>
-                  <p
-                    className="text-forest text-xs uppercase tracking-wide mt-0.5 mb-1"
-                    style={{ fontFamily: "var(--font-lato)" }}
-                  >
-                    {cert.org}
-                  </p>
-                  <p
-                    className="text-bark-light/65 text-sm"
-                    style={{ fontFamily: "var(--font-lato)", fontWeight: 300 }}
-                  >
-                    {cert.desc}
-                  </p>
+                  className="text-[#3d2b1f] font-semibold mb-1 text-sm leading-snug"
+                  style={{ fontFamily: "var(--font-raleway)" }}
+                >
+                  {cert.title}
+                </div>
+                <div
+                  className="text-[#4a7c59] text-xs"
+                  style={{ fontFamily: "var(--font-raleway)", fontWeight: 400 }}
+                >
+                  {cert.org}
                 </div>
               </div>
             ))}
@@ -734,189 +844,230 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ─── CONTACT ───────────────────────────────────────────────────── */}
-      <section
-        id="contact"
-        className="py-24 md:py-36 gradient-mesh overflow-hidden"
-      >
-        <div className="max-w-7xl mx-auto px-6 md:px-16 lg:px-24">
+      {/* ═══════════════════════════════════════
+          CONTACT SECTION
+      ═══════════════════════════════════════ */}
+      <section id="contact" className="relative py-28 md:py-40 overflow-hidden">
+        <div className="absolute inset-0 bg-[#2f5038]" />
+
+        {/* Botanical corner decorations */}
+        <div className="absolute top-0 right-0 opacity-10">
+          <svg width="300" height="300" viewBox="0 0 300 300" fill="none">
+            <path d="M300 0 Q200 100 150 150 Q100 200 0 300" stroke="#c9a84c" strokeWidth="1"/>
+            <path d="M300 50 Q220 130 180 180 Q140 230 50 300" stroke="#c9a84c" strokeWidth="0.5"/>
+            <circle cx="270" cy="30" r="15" stroke="#a8c5b0" strokeWidth="0.5" fill="none"/>
+            <circle cx="240" cy="60" r="10" stroke="#a8c5b0" strokeWidth="0.5" fill="none"/>
+          </svg>
+        </div>
+        <div className="absolute bottom-0 left-0 opacity-10 rotate-180">
+          <svg width="300" height="300" viewBox="0 0 300 300" fill="none">
+            <path d="M300 0 Q200 100 150 150 Q100 200 0 300" stroke="#c9a84c" strokeWidth="1"/>
+            <path d="M300 50 Q220 130 180 180 Q140 230 50 300" stroke="#c9a84c" strokeWidth="0.5"/>
+          </svg>
+        </div>
+
+        <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-16 lg:px-24">
           <div className="grid lg:grid-cols-2 gap-16 items-start">
-            {/* Left */}
+            {/* Left: info */}
             <div>
-              <div data-animate className="flex items-center gap-3 mb-6">
-                <div className="w-8 h-px bg-forest" />
+              <div
+                data-animate
+                className="flex items-center gap-3 mb-6"
+              >
+                <div className="w-12 h-px bg-[#c9a84c]" />
                 <span
-                  className="text-forest text-xs uppercase tracking-[0.25em]"
-                  style={{ fontFamily: "var(--font-lato)" }}
+                  className="text-[#c9a84c] tracking-[0.25em] text-xs uppercase"
+                  style={{ fontFamily: "var(--font-raleway)", fontWeight: 600 }}
                 >
                   Contact
                 </span>
               </div>
+
               <h2
                 data-animate
-                data-delay="1"
-                className="text-5xl md:text-6xl font-400 italic text-bark leading-tight mb-8"
-                style={{ fontFamily: "var(--font-cormorant)" }}
+                data-delay="200"
+                className="text-[#f7f3ec] leading-tight mb-8"
+                style={{
+                  fontFamily: "var(--font-cormorant)",
+                  fontSize: "clamp(2.5rem, 5vw, 4rem)",
+                  fontWeight: 600,
+                }}
               >
-                Prenez
+                Réservez votre
                 <br />
-                <span className="text-forest font-600 not-italic">rendez-vous</span>
+                <span className="italic text-[#a8c5b0]">séjour</span>
               </h2>
 
               <p
                 data-animate
-                data-delay="2"
-                className="text-bark-light/75 text-lg leading-relaxed mb-10"
-                style={{ fontFamily: "var(--font-lato)", fontWeight: 300 }}
+                data-delay="300"
+                className="text-[#a8c5b0] text-lg leading-relaxed mb-12"
+                style={{ fontFamily: "var(--font-raleway)", fontWeight: 300 }}
               >
-                Pour toute question ou réservation, n'hésitez pas à nous contacter par téléphone
-                ou par email. Vanessa Martin sera ravie de vous renseigner sur les disponibilités
-                et les conditions d'accueil.
+                N'hésitez pas à nous contacter pour vérifier les disponibilités, poser vos questions ou organiser une visite de la pension.
               </p>
 
-              {/* Contact details */}
-              <div data-animate data-delay="3" className="space-y-4">
-                {[
-                  {
-                    label: "Téléphone",
-                    value: "06 26 69 07 74",
-                    href: "tel:0626690774",
-                    icon: "📞",
-                  },
-                  {
-                    label: "Email",
-                    value: "la.colo.nimaux@gmail.com",
-                    href: "mailto:la.colo.nimaux@gmail.com",
-                    icon: "✉️",
-                  },
-                  {
-                    label: "Adresse",
-                    value: "85 Avenue de Jourdane, 33440 Ambarès-et-Lagrave",
-                    href: "https://maps.google.com/?q=85+Avenue+de+Jourdane+33440+Ambarès-et-Lagrave",
-                    icon: "📍",
-                  },
-                  {
-                    label: "Facebook",
-                    value: "facebook.com/Lacolonimaux",
-                    href: "https://www.facebook.com/Lacolonimaux/",
-                    icon: "🌐",
-                  },
-                ].map((item, i) => (
-                  <a
-                    key={i}
-                    href={item.href}
-                    target={item.href.startsWith("http") ? "_blank" : undefined}
-                    rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                    className="flex items-center gap-4 p-4 rounded-sm group transition-all duration-300"
-                    style={{
-                      background: "rgba(255,255,255,0.6)",
-                      border: "1px solid rgba(74,124,89,0.12)",
-                    }}
-                  >
-                    <span className="text-2xl w-10 text-center flex-shrink-0">{item.icon}</span>
-                    <div>
-                      <p
-                        className="text-xs text-forest uppercase tracking-wider mb-0.5"
-                        style={{ fontFamily: "var(--font-lato)" }}
-                      >
-                        {item.label}
-                      </p>
-                      <p
-                        className="text-bark font-400 group-hover:text-forest transition-colors duration-200"
-                        style={{ fontFamily: "var(--font-lato)" }}
-                      >
-                        {item.value}
-                      </p>
-                    </div>
-                  </a>
-                ))}
+              {/* Contact cards */}
+              <div
+                data-animate
+                data-delay="400"
+                className="space-y-4"
+              >
+                <a
+                  href="tel:0626690774"
+                  className="flex items-center gap-5 p-5 bg-white/5 border border-white/10 hover:border-[#4a7c59] hover:bg-[#4a7c59]/20 transition-all duration-300 group"
+                >
+                  <div className="w-12 h-12 rounded-full bg-[#4a7c59]/20 flex items-center justify-center text-[#a8c5b0] group-hover:bg-[#4a7c59] transition-colors shrink-0">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92v2z"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <p
+                      className="text-[#a8c5b0] text-xs uppercase tracking-widest mb-0.5"
+                      style={{ fontFamily: "var(--font-raleway)" }}
+                    >
+                      Téléphone
+                    </p>
+                    <p
+                      className="text-[#f7f3ec] text-lg"
+                      style={{ fontFamily: "var(--font-cormorant)", fontWeight: 500 }}
+                    >
+                      06.26.69.07.74
+                    </p>
+                  </div>
+                </a>
+
+                <a
+                  href="mailto:la.colo.nimaux@gmail.com"
+                  className="flex items-center gap-5 p-5 bg-white/5 border border-white/10 hover:border-[#4a7c59] hover:bg-[#4a7c59]/20 transition-all duration-300 group"
+                >
+                  <div className="w-12 h-12 rounded-full bg-[#4a7c59]/20 flex items-center justify-center text-[#a8c5b0] group-hover:bg-[#4a7c59] transition-colors shrink-0">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                      <polyline points="22,6 12,13 2,6"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <p
+                      className="text-[#a8c5b0] text-xs uppercase tracking-widest mb-0.5"
+                      style={{ fontFamily: "var(--font-raleway)" }}
+                    >
+                      Email
+                    </p>
+                    <p
+                      className="text-[#f7f3ec] text-lg"
+                      style={{ fontFamily: "var(--font-cormorant)", fontWeight: 500 }}
+                    >
+                      la.colo.nimaux@gmail.com
+                    </p>
+                  </div>
+                </a>
+
+                <div className="flex items-center gap-5 p-5 bg-white/5 border border-white/10">
+                  <div className="w-12 h-12 rounded-full bg-[#4a7c59]/20 flex items-center justify-center text-[#a8c5b0] shrink-0">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+                      <circle cx="12" cy="10" r="3"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <p
+                      className="text-[#a8c5b0] text-xs uppercase tracking-widest mb-0.5"
+                      style={{ fontFamily: "var(--font-raleway)" }}
+                    >
+                      Adresse
+                    </p>
+                    <p
+                      className="text-[#f7f3ec] text-lg"
+                      style={{ fontFamily: "var(--font-cormorant)", fontWeight: 500 }}
+                    >
+                      85 Avenue de Jourdane
+                    </p>
+                    <p
+                      className="text-[#a8c5b0] text-sm"
+                      style={{ fontFamily: "var(--font-raleway)", fontWeight: 300 }}
+                    >
+                      33440 Ambarès-et-Lagrave
+                    </p>
+                  </div>
+                </div>
+
+                <a
+                  href="https://www.facebook.com/Lacolonimaux/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-5 p-5 bg-white/5 border border-white/10 hover:border-[#4a7c59] hover:bg-[#4a7c59]/20 transition-all duration-300 group"
+                >
+                  <div className="w-12 h-12 rounded-full bg-[#4a7c59]/20 flex items-center justify-center text-[#a8c5b0] group-hover:bg-[#4a7c59] transition-colors shrink-0">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <p
+                      className="text-[#a8c5b0] text-xs uppercase tracking-widest mb-0.5"
+                      style={{ fontFamily: "var(--font-raleway)" }}
+                    >
+                      Facebook
+                    </p>
+                    <p
+                      className="text-[#f7f3ec] text-lg"
+                      style={{ fontFamily: "var(--font-cormorant)", fontWeight: 500 }}
+                    >
+                      La Colo-nimaux
+                    </p>
+                  </div>
+                </a>
               </div>
             </div>
 
-            {/* Right — notice/info card */}
-            <div data-animate="fade-right" data-delay="2">
-              <div
-                className="relative rounded-sm overflow-hidden p-8 md:p-10"
-                style={{
-                  background: "linear-gradient(135deg, #2d5c3f, #4a7c59)",
-                  boxShadow: "0 32px 80px rgba(45,92,63,0.25)",
-                }}
-              >
-                {/* Background paw prints */}
-                <div
-                  className="absolute inset-0 opacity-10 paw-pattern"
-                  style={{ filter: "invert(1)" }}
+            {/* Right: Map placeholder + signature */}
+            <div
+              data-animate="fade-right"
+              data-delay="300"
+              className="space-y-6"
+            >
+              {/* Map embed placeholder */}
+              <div className="relative overflow-hidden rounded-sm">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2836.1234!2d-0.4987!3d44.9012!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2s85+Avenue+de+Jourdane%2C+33440+Ambares-et-Lagrave!5e0!3m2!1sfr!2sfr!4v1"
+                  width="100%"
+                  height="350"
+                  style={{ border: 0, filter: "grayscale(40%) contrast(1.1)" }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="La Colo-nimaux — Carte"
                 />
+                <div className="absolute inset-0 pointer-events-none border border-[#4a7c59]/30" />
+              </div>
 
-                <div className="relative z-10">
-                  <span className="text-5xl mb-6 block">🏠</span>
-                  <h3
-                    className="text-3xl md:text-4xl font-400 italic text-cream mb-4"
-                    style={{ fontFamily: "var(--font-cormorant)" }}
-                  >
-                    Informations
-                    <br />
-                    pratiques
-                  </h3>
-
-                  <div className="space-y-4 mt-8">
-                    {[
-                      {
-                        title: "Visite préalable",
-                        desc: "Une visite de découverte est recommandée avant le premier séjour.",
-                      },
-                      {
-                        title: "Vaccinations obligatoires",
-                        desc: "Carnet de santé à jour exigé pour tous les animaux accueillis.",
-                      },
-                      {
-                        title: "Nourriture habituelle",
-                        desc: "Merci d'apporter la nourriture habituelle de votre animal pour son confort.",
-                      },
-                      {
-                        title: "Chiens entiers",
-                        desc: "Les chiens entiers peuvent être refusés selon leur comportement.",
-                      },
-                    ].map((info, i) => (
-                      <div
-                        key={i}
-                        className="border-l-2 pl-4"
-                        style={{ borderColor: "rgba(201,168,76,0.5)" }}
-                      >
-                        <p
-                          className="text-gold-light font-600 text-sm uppercase tracking-wide mb-1"
-                          style={{ fontFamily: "var(--font-lato)" }}
-                        >
-                          {info.title}
-                        </p>
-                        <p
-                          className="text-cream/75 text-sm leading-relaxed"
-                          style={{ fontFamily: "var(--font-lato)", fontWeight: 300 }}
-                        >
-                          {info.desc}
-                        </p>
-                      </div>
-                    ))}
+              {/* Signature block */}
+              <div className="bg-white/5 border border-white/10 p-8">
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 rounded-full bg-[#4a7c59] flex items-center justify-center text-[#f7f3ec] text-lg font-bold shrink-0" style={{ fontFamily: "var(--font-cormorant)" }}>
+                    V
                   </div>
-
-                  <div className="mt-10 pt-8" style={{ borderTop: "1px solid rgba(245,240,232,0.15)" }}>
-                    <a
-                      href="tel:0626690774"
-                      className="flex items-center justify-center gap-3 py-4 px-6 w-full text-center rounded-sm"
-                      style={{
-                        background: "#c9a84c",
-                        color: "#2c2016",
-                        fontFamily: "var(--font-lato)",
-                        fontWeight: 700,
-                        fontSize: "0.8125rem",
-                        letterSpacing: "0.1em",
-                        textTransform: "uppercase",
-                        transition: "all 0.3s ease",
-                      }}
+                  <div>
+                    <p
+                      className="text-[#f7f3ec] text-xl mb-1"
+                      style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}
                     >
-                      <span>📞</span>
-                      <span>Appeler Vanessa</span>
-                    </a>
+                      Vanessa Martin
+                    </p>
+                    <p
+                      className="text-[#a8c5b0] text-sm mb-4"
+                      style={{ fontFamily: "var(--font-raleway)", fontWeight: 400 }}
+                    >
+                      Fondatrice · Comportementaliste Diplômée
+                    </p>
+                    <p
+                      className="text-[#d4e8da]/70 text-sm italic leading-relaxed"
+                      style={{ fontFamily: "var(--font-cormorant)", fontStyle: "italic", fontSize: "1.1rem" }}
+                    >
+                      "Chaque animal mérite d'être compris dans sa singularité. Mon engagement quotidien est de leur offrir un séjour serein, adapté à leurs besoins et à leur caractère."
+                    </p>
                   </div>
                 </div>
               </div>

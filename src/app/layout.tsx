@@ -1,31 +1,30 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Lato, Italiana } from "next/font/google";
+import { Cormorant_Garamond, Raleway, Satisfy } from "next/font/google";
 import "./globals.css";
 
 const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
   variable: "--font-cormorant",
   weight: ["300", "400", "500", "600", "700"],
-  style: ["normal", "italic"],
 });
 
-const lato = Lato({
+const raleway = Raleway({
   subsets: ["latin"],
-  variable: "--font-lato",
-  weight: ["300", "400", "700", "900"],
+  variable: "--font-raleway",
+  weight: ["300", "400", "500", "600", "700"],
 });
 
-const italiana = Italiana({
+const satisfy = Satisfy({
   subsets: ["latin"],
-  variable: "--font-italiana",
+  variable: "--font-satisfy",
   weight: ["400"],
 });
 
 export const metadata: Metadata = {
   title: "La Colo-nimaux — Pension Canine & Féline",
   description:
-    "Pension canine et féline en liberté à Ambarès-et-Lagrave, gérée par Vanessa Martin, éducatrice comportementaliste canin et félin diplômée.",
-  keywords: "pension canine, pension féline, chien, chat, Ambarès, Bordeaux, comportementaliste",
+    "Pension canine et féline familiale à Ambarès-et-Lagrave. Hébergement en liberté pour chiens, chatterie avec espaces communs. Dirigée par Vanessa Martin, comportementaliste diplômée.",
+  keywords: "pension canine, pension féline, chatterie, chien, chat, Ambarès, Bordeaux, Vanessa Martin",
 };
 
 export default function RootLayout({
@@ -34,8 +33,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fr" className="scroll-smooth">
-      <body className={`${cormorant.variable} ${lato.variable} ${italiana.variable} noise-overlay`}>
+    <html lang="fr">
+      <body className={`${cormorant.variable} ${raleway.variable} ${satisfy.variable}`}>
         {children}
       </body>
     </html>
